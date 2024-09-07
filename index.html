@@ -237,7 +237,9 @@
         document.addEventListener('gesturestart', function (e) {
             e.preventDefault();
         }, { passive: false });
-         document.addEventListener('visibilitychange', function () {
+
+         // screen short
+          document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'hidden') {
                 document.body.classList.add('blur');
             } else {
@@ -245,13 +247,27 @@
             }
         });
 
-        // Additional check using focus and blur events
+        // Detect window focus and blur events to blur content
         window.addEventListener('focus', function () {
             document.body.classList.remove('blur');
         });
 
         window.addEventListener('blur', function () {
             document.body.classList.add('blur');
+        });
+
+        // Detect key press events like Print Screen (PrtSc)
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'PrintScreen') {
+                alert('Screenshots are not allowed on this page.');
+                e.preventDefault();
+            }
+        });
+
+        // Disable context menu to prevent right-click screenshot tools
+        document.addEventListener('contextmenu', function (e) {
+            alert('Context menu is disabled.');
+            e.preventDefault();
         });
     </script>
 </body>
