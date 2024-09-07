@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>PMPML</title>
     <link rel="icon" href="pmpml.png">
     <style>
@@ -227,13 +228,15 @@
       <img src="https://e7.pngegg.com/pngimages/654/738/png-clipart-computer-icons-name-icon-black-desktop-wallpaper.png">
     </div>
      <script>
-                document.addEventListener('gesturestart', function (e) {
+        // Disable double-tap to zoom
+        document.addEventListener('dblclick', function (e) {
             e.preventDefault();
-        });
+        }, { passive: false });
 
-           document.addEventListener('dblclick', function (e) {
+        // Disable pinch-to-zoom
+        document.addEventListener('gesturestart', function (e) {
             e.preventDefault();
-        });
+        }, { passive: false });
     </script>
 </body>
 
