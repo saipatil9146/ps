@@ -237,6 +237,22 @@
         document.addEventListener('gesturestart', function (e) {
             e.preventDefault();
         }, { passive: false });
+         document.addEventListener('visibilitychange', function () {
+            if (document.visibilityState === 'hidden') {
+                document.body.classList.add('blur');
+            } else {
+                document.body.classList.remove('blur');
+            }
+        });
+
+        // Additional check using focus and blur events
+        window.addEventListener('focus', function () {
+            document.body.classList.remove('blur');
+        });
+
+        window.addEventListener('blur', function () {
+            document.body.classList.add('blur');
+        });
     </script>
 </body>
 
