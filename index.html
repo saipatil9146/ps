@@ -239,35 +239,55 @@
         }, { passive: false });
 
          // screen short
-          document.addEventListener('visibilitychange', function () {
+          function blurContent() {
+            document.body.classList.add('blur');
+        }
+
+        // Function to unblur the content
+        function unblurContent() {
+            document.body.classList.remove('blur');
+        }
+
+        // Detect visibility change to blur content
+        document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'hidden') {
-                document.body.classList.add('blur');
+                blurContent();
             } else {
-                document.body.classList.remove('blur');
+                unblurContent();
             }
         });
 
         // Detect window focus and blur events to blur content
         window.addEventListener('focus', function () {
-            document.body.classList.remove('blur');
+            unblurContent();
         });
 
         window.addEventListener('blur', function () {
-            document.body.classList.add('blur');
-        });
-
-        // Detect key press events like Print Screen (PrtSc)
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'PrintScreen') {
-                alert('Screenshots are not allowed on this page.');
-                e.preventDefault();
-            }
+            blurContent();
         });
 
         // Disable context menu to prevent right-click screenshot tools
         document.addEventListener('contextmenu', function (e) {
             alert('Context menu is disabled.');
             e.preventDefault();
+        });
+
+        // Attempt to detect the Print Screen key (not reliable)
+        document.addEventListener('keyup', function (e) {
+            if (e.key === 'PrintScreen') {
+                alert('Screenshots are not allowed.');
+                blurContent();
+                setTimeout(unblurContent, 1000);  // Unblur after a short delay
+            }
+        });
+
+        // Attempt to detect the Print Screen key for different browsers (not reliable)
+        window.addEventListener('keydown', function (e) {
+            if (e.keyCode === 44) { // 44 is the key code for Print Screen
+                alert('Screenshots are not allowed.');
+                blurContent();
+                setTimeout(unblurContent, 1000);  // Unblur after a short delay
+            }
         });
     </script>
 </body>
