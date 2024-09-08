@@ -100,6 +100,7 @@
                 margin-top: 10px;
                 color: rgb(207, 207, 207);
                 width: 100%;
+                text-aline: center;
             }
 
             .booktime {
@@ -228,68 +229,14 @@
       <img src="https://cdn-icons-png.flaticon.com/256/16/16480.png">
     </div>
      <script>
-        // Disable double-tap to zoom
         document.addEventListener('dblclick', function (e) {
             e.preventDefault();
         }, { passive: false });
 
-        // Disable pinch-to-zoom
         document.addEventListener('gesturestart', function (e) {
             e.preventDefault();
         }, { passive: false });
-
-         // screen short
-          function blurContent() {
-            document.body.classList.add('blur');
-        }
-
-        // Function to unblur the content
-        function unblurContent() {
-            document.body.classList.remove('blur');
-        }
-
-        // Detect visibility change to blur content
-        document.addEventListener('visibilitychange', function () {
-            if (document.visibilityState === 'hidden') {
-                blurContent();
-            } else {
-                unblurContent();
-            }
-        });
-
-        // Detect window focus and blur events to blur content
-        window.addEventListener('focus', function () {
-            unblurContent();
-        });
-
-        window.addEventListener('blur', function () {
-            blurContent();
-        });
-
-        // Disable context menu to prevent right-click screenshot tools
-        document.addEventListener('contextmenu', function (e) {
-            alert('Context menu is disabled.');
-            e.preventDefault();
-        });
-
-        // Attempt to detect the Print Screen key (not reliable)
-        document.addEventListener('keyup', function (e) {
-            if (e.key === 'PrintScreen') {
-                alert('Screenshots are not allowed.');
-                blurContent();
-                setTimeout(unblurContent, 1000);  // Unblur after a short delay
-            }
-        });
-
-        // Attempt to detect the Print Screen key for different browsers (not reliable)
-        window.addEventListener('keydown', function (e) {
-            if (e.keyCode === 44) { // 44 is the key code for Print Screen
-                alert('Screenshots are not allowed.');
-                blurContent();
-                setTimeout(unblurContent, 1000);  // Unblur after a short delay
-            }
-        });
-    </script>
+          
 </body>
 
 </html>
