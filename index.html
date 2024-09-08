@@ -8,13 +8,13 @@
     <title>PMPML</title>
     <link rel="icon" href="pmpml.png">
     <style>
-     @media (max-width: 700px) {
+        @media (max-width: 700px) {
             body {
                 background-color: rgb(220, 220, 255);
                 margin: auto;
                 padding: 0%;
             }
-        
+
 
             .main {
                 display: flex;
@@ -100,7 +100,7 @@
                 margin-top: 10px;
                 color: rgb(207, 207, 207);
                 width: 100%;
-                text-aline: center;
+                text-align: center;
             }
 
             .booktime {
@@ -157,22 +157,45 @@
                 text-align: center;
                 color: #fff;
                 font-family: Arial, Helvetica, sans-serif;
-                
+
             }
-            .cus{
+
+            .cus {
                 height: 55px;
                 background-color: rgb(255, 255, 255);
                 border-radius: 100px;
-                width: 55px; 
+                width: 55px;
                 margin: 60px 0 0 82.5%;
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
-            .cus img{
+
+            .cus img {
                 height: 22px;
                 position: relative;
                 justify-items: center;
                 align-items: center;
                 margin: 16px 0 0 17px;
+            }
+            .left-half-line-circle {
+                width: 12.5px;
+                height: 22px;
+                border: 1.5px solid rgb(182, 182, 182); /* Circle ki line color aur width */
+                border-right: none; /* Right side ki line ko hatana */
+                border-top-left-radius: 100px;
+                border-bottom-left-radius: 100px;
+                background-color: transparent;
+                margin: -38px 0 0 339px;
+            }
+            .right-half-line-circle {
+                width: 12.5px;
+                height: 22px;
+                border: 1.5px solid rgb(182, 182, 182); /* Circle ki line color aur width */
+                border-left: none; /* Right side ki line ko hatana */
+                border-top-right-radius: 100px;
+                border-bottom-right-radius: 100px;
+                background-color: transparent;
+                margin: -23px 0 0 0;
+                
             }
 
         }
@@ -203,7 +226,10 @@
                         <b class="pmc"><strong><b>₹40</b></strong></b>
                     </div>
                 </div>
-                <div class="hirizontal-line">-----------------------------------------------------------------------</div>
+                <div class="hirizontal-line">-----------------------------------------------------------------------
+                    <div class="left-half-line-circle"></div>
+                    <div class="right-half-line-circle"></div>
+                </div>
                 <div class="booktime">
                     <div class="time">
                         <p class="ttt">Booking Time</p>
@@ -215,9 +241,11 @@
                     </div>
                 </div>
                 <div class="number">5609740913AK2D7P</div>
-                <div class="hirizontal-line">-----------------------------------------------------------------------</div>
+                <div class="hirizontal-line">-----------------------------------------------------------------------
+                </div>
                 <div class="logoo">
-                    <img src="https://play-lh.googleusercontent.com/lFSZVZeLbHkZN9Iz7kGqJ0aVEEy_AaZYPAX9lyomfZvNCARgoihUKm4oV6z4mlAl_hTV" alt="image">
+                    <img src="https://play-lh.googleusercontent.com/lFSZVZeLbHkZN9Iz7kGqJ0aVEEy_AaZYPAX9lyomfZvNCARgoihUKm4oV6z4mlAl_hTV"
+                        alt="image">
                 </div>
                 <div class="onedayname">
                     One Day Pass
@@ -226,9 +254,9 @@
         </div>
     </div>
     <div class="cus">
-      <img src="https://cdn-icons-png.flaticon.com/256/16/16480.png">
+        <img src="https://cdn-icons-png.flaticon.com/256/16/16480.png">
     </div>
-     <script>
+    <script>
         document.addEventListener('dblclick', function (e) {
             e.preventDefault();
         }, { passive: false });
@@ -236,7 +264,8 @@
         document.addEventListener('gesturestart', function (e) {
             e.preventDefault();
         }, { passive: false });
-          
+    </script>
+
 </body>
 
 </html>
