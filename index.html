@@ -3,18 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>PMPML</title>
     <link rel="icon" href="pmpml.png">
     <style>
         @media (max-width: 700px) {
             body {
-                background-color: rgb(198, 198, 246);
+                background-color: rgb(220, 220, 255);
                 margin: auto;
                 padding: 0%;
             }
-
 
             .main {
                 display: flex;
@@ -23,44 +21,46 @@
 
             .all {
                 text-decoration: underline;
-                font-size: 14px;
+                font-size: 15px;
                 font-family: Arial, Helvetica, sans-serif;
-                margin: 0 0 0 75%;
+                margin: 0 0 0 82%;
+                font-weight: normal;
             }
 
             .crossimg {
-                height: 12px;
-                margin: 0 0 0 -89%;
-
+                height: 16px;
+                margin: 0 0 0 -90%;
             }
 
             .contain {
-                height: 520px;
+                height: 550px;
                 width: 90%;
-                margin: 80px 25px 30px 20px;
+                margin: 170px 25px 30px 20px;
                 border-radius: 15px;
-                background-color: rgb(230, 25, 25);
+                background-color: rgb(207, 46, 46);
                 display: flex;
+                position: relative;
             }
 
-            .mainname {           
-
+            .mainname {
                 height: 13px;
             }
 
-            .pune {
+            .marathi {
                 color: #fff;
-                font-size: 19px;
-                padding-bottom: -100px;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 22px;
+                font-family: system-ui, sans-serif;
                 text-align: center;
+                margin-top: 6px;
             }
 
             .textcontain {
                 background-color: #fff;
-                height: 445px;
-                width: 354px;
-                margin-top: -10px;
+                height: 476px;
+                width: 443px;
+                margin-top: -16px; /* Adjusted margin to create a 4px gap */
+                position: relative;
+                overflow: hidden;
             }
 
             .pif {
@@ -75,17 +75,16 @@
 
             .passt {
                 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                font-size: 11px;
+                font-size: 13px;
                 color: gray;
                 margin-left: 8px;
-
             }
 
             .pmc {
                 position: absolute;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                 margin: -10px 0 0 10px;
-                font-size: 20px;
+                font-size: 21px;
             }
 
             .id {
@@ -98,54 +97,81 @@
 
             .hirizontal-line {
                 margin-top: 10px;
-                color: rgb(207, 207, 207);
                 width: 100%;
-                text-align: center;
+                position: relative;
+                border-top: 1px dashed rgb(207, 207, 207);
             }
-             
+
+            .hirizontal-line::before,
+            .hirizontal-line::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border: 1px solid rgb(207, 207, 207);
+                border-radius: 50%;
+                background-color: white;
+                top: -10px;
+            }
+
+            .hirizontal-line::before {
+                left: -10px;
+            }
+
+            .hirizontal-line::after {
+                right: -10px;
+            }
+
+            .hirizontal-line.second::before,
+            .hirizontal-line.second::after {
+                content: none;
+            }
 
             .booktime {
                 display: flex;
                 height: 80px;
-                margin-top: 6px;
+                margin-top: 20px;
             }
 
-            .time {
+            .time,
+            .valid {
                 width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .ttt {
                 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                font-size: 12px;
+                font-size: 15px;
                 color: gray;
-                margin-left: 13px;
+                margin-left: -50px;
             }
 
             .sss {
-                position: absolute;
                 font-family: sans-serif;
-                margin: -8px 0 0 14px;
-                font-size: 13.5px;
+                margin: -10px 0 0 0;
+                font-size: 15px;
+                text-align: center;
             }
 
             .number {
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                 text-align: center;
-                margin-top: -8px;
+                margin-top: 10px;
                 color: rgb(117, 117, 117);
             }
 
             .logoo img {
                 height: 120px;
-                margin: 43px 0 0 110px;
-                animation: zoomInOut 2s ease-in-out infinite;
+                margin: 75px 0 0 160px;
+                animation: zoomInOut 1.8s ease-in-out infinite;
             }
 
             @keyframes zoomInOut {
-
                 0%,
                 100% {
-                    transform: scale(0.7);
+                    transform: scale(0.8);
                 }
 
                 50% {
@@ -154,11 +180,15 @@
             }
 
             .onedayname {
-                margin-top: 57px;
-                text-align: center;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                
+                padding: 5px 10px;
                 color: #fff;
                 font-family: Arial, Helvetica, sans-serif;
-
+                font-size: 18px;
             }
 
             .cus {
@@ -166,39 +196,17 @@
                 background-color: rgb(255, 255, 255);
                 border-radius: 100px;
                 width: 55px;
-                margin: 68px 0 0 82.5%;
+                margin: 185px 0 0 82.5%;
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
 
             .cus img {
-                height: 19px;
+                height: 20px;
                 position: relative;
                 justify-items: center;
                 align-items: center;
-                margin: 17px 0 0 18px;
+                margin: 17px 0 0 17px;
             }
-            .left-half-line-circle {
-                width: 12.7px;
-                height: 28px;
-                border: 1.5px solid rgb(207, 207, 207); /* Circle ki line color aur width */
-                border-right: none; /* Right side ki line ko hatana */
-                border-top-left-radius: 100px;
-                border-bottom-left-radius: 100px;
-                background-color: transparent;
-                margin: -24px 0 0 341px;
-            }
-            .right-half-line-circle {
-                width: 12px;
-                height: 27px;
-                border: 1.5px solid rgb(207, 207, 207); /* Circle ki line color aur width */
-                border-left: none; /* Right side ki line ko hatana */
-                border-top-right-radius: 100px;
-                border-bottom-right-radius: 100px;
-                background-color: transparent;
-                margin: -30px 0 0 0;
-                
-            }
-
         }
     </style>
 </head>
@@ -206,66 +214,49 @@
 <body>
     <div class="main">
         <h6 class="all">All passes</h6>
-        <img class="crossimg" src="https://cdn-icons-png.flaticon.com/512/222/222360.png" alt="image">
+        <img class="crossimg" src="https://www.transparentpng.com/download/cross/yM7oG6-cross-svg-png-icon-free-download.png" alt="image">
     </div>
     <div class="contain">
         <div class="mainname">
-            <p class="pune">पुणे महानगर परिवहन महामंडळ लि.</p>
-
+            <p class="marathi">पुणे महानगर परिवहन महामंडळ लि.</p>
             <div class="textcontain">
                 <div class="pif">
                     <div class="passtype">
                         <p class="passt">Pass Type</p>
-                        <b class="pmc"><strong><b>Only PMC</b></strong></b>
+                        <b class="pmc"><strong>Only PMC</strong></b>
                     </div>
                     <div class="id">
                         <p class="passt">ID</p>
-                        <b class="pmc"><strong><b>1923</b></strong></b>
+                        <b class="pmc"><strong>5292</strong></b>
                     </div>
                     <div class="rs">
                         <p class="passt">Fare</p>
-                        <b class="pmc"><strong><b>₹40</b></strong></b>
+                        <b class="pmc"><strong>₹40</strong></b>
                     </div>
                 </div>
-                <div class="hirizontal-line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -  
-                    <div class="left-half-line-circle"></div>
-                    <div class="right-half-line-circle"></div>
-                </div>
+                <div class="hirizontal-line"></div>
                 <div class="booktime">
                     <div class="time">
                         <p class="ttt">Booking Time</p>
-                        <b class="sss"><strong><b>03 Oct, 24 | 08:03 AM</b></strong></b>
+                        <b class="sss"><strong>01 Oct, 24 | 06:12 AM</strong></b>
                     </div>
                     <div class="valid">
                         <p class="ttt">Validity Time</p>
-                        <b class="sss"><strong><b>03 Oct, 24 | 11:59 PM</b></strong></b>
+                        <b class="sss"><strong>01 Oct, 24 | 11:59 PM</strong></b>
                     </div>
                 </div>
-                <div class="number">8564240913EK9C58</div>
-                <div class="hirizontal-line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -              </div>
+                <div class="number">2410010612MIT8HS</div>
+                <div class="hirizontal-line second"></div>
                 <div class="logoo">
-                    <img src="https://play-lh.googleusercontent.com/lFSZVZeLbHkZN9Iz7kGqJ0aVEEy_AaZYPAX9lyomfZvNCARgoihUKm4oV6z4mlAl_hTV"
-                        alt="image">
-                </div>
-                <div class="onedayname">
-                    One Day Pass
+                    <img src="https://play-lh.googleusercontent.com/lFSZVZeLbHkZN9Iz7kGqJ0aVEEy_AaZYPAX9lyomfZvNCARgoihUKm4oV6z4mlAl_hTV" alt="image">
                 </div>
             </div>
         </div>
+        <div class="onedayname"><strong>One Day Pass</strong> </div>
     </div>
     <div class="cus">
-        <img src="https://cdn-icons-png.flaticon.com/256/16/16480.png">
+        <img src="https://e7.pngegg.com/pngimages/654/738/png-clipart-computer-icons-name-icon-black-desktop-wallpaper.png">
     </div>
-    <script>
-        document.addEventListener('dblclick', function (e) {
-            e.preventDefault();
-        }, { passive: false });
-
-        document.addEventListener('gesturestart', function (e) {
-            e.preventDefault();
-        }, { passive: false });
-    </script>
-
 </body>
 
 </html>
