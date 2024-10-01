@@ -94,38 +94,14 @@
                 width: 33.3333%;
             }
 
-            .hirizontal-line {
+           .hirizontal-line {
                 margin-top: 10px;
                 color: rgb(207, 207, 207);
                 width: 100%;
                 text-align: center;
             }
 
-            .hirizontal-line::before,
-            .hirizontal-line::after {
-                content: '';
-                position: absolute;
-                width: 20px;
-                height: 20px;
-                border: 1px solid rgb(207, 207, 207);
-                border-radius: 50%;
-                background-color: white;
-                top: -10px;
-            }
-
-            .hirizontal-line::before {
-                left: -10px;
-            }
-
-            .hirizontal-line::after {
-                right: -10px;
-            }
-
-            .hirizontal-line.second::before,
-            .hirizontal-line.second::after {
-                content: none;
-            }
-
+     
             .booktime {
                 display: flex;
                 height: 80px;
@@ -205,6 +181,27 @@
                 align-items: center;
                 margin: 17px 0 0 17px;
             }
+            .left-half-line-circle {
+                width: 12.7px;
+                height: 28px;
+                border: 1.5px solid rgb(207, 207, 207); /* Circle ki line color aur width */
+                border-right: none; /* Right side ki line ko hatana */
+                border-top-left-radius: 100px;
+                border-bottom-left-radius: 100px;
+                background-color: transparent;
+                margin: -24px 0 0 341px;
+            }
+            .right-half-line-circle {
+                width: 12px;
+                height: 27px;
+                border: 1.5px solid rgb(207, 207, 207); /* Circle ki line color aur width */
+                border-left: none; /* Right side ki line ko hatana */
+                border-top-right-radius: 100px;
+                border-bottom-right-radius: 100px;
+                background-color: transparent;
+                margin: -30px 0 0 0;
+                
+            }
         }
     </style>
 </head>
@@ -232,7 +229,7 @@
                         <b class="pmc"><strong>₹40</strong></b>
                     </div>
                 </div>
-                <div class="hirizontal-line"></div>
+                <div class="hirizontal-line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - </div> 
                 <div class="booktime">
                     <div class="time">
                         <p class="ttt">Booking Time</p>
@@ -244,7 +241,7 @@
                     </div>
                 </div>
                 <div class="number">2410010612MIT8HS</div>
-                <div class="hirizontal-line second"></div>
+                <div class="hirizontal-line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -              </div>
                 <div class="logoo">
                     <img src="https://play-lh.googleusercontent.com/lFSZVZeLbHkZN9Iz7kGqJ0aVEEy_AaZYPAX9lyomfZvNCARgoihUKm4oV6z4mlAl_hTV" alt="image">
                 </div>
