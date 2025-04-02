@@ -202,17 +202,36 @@
 
             }
 
-            .clock {
-                width: 302px;
-                margin-left: 20px;
+            .container {
+                background: #dbd9d9;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 font-family: Arial, sans-serif;
-                color: #333;
-                background: #e0dfdf;
-                padding: 8px 30px;
+                width: 297px;
+                height: 25px;
+                padding-top: 4px;
+                margin-left: 20px;
                 text-align: center;
                 margin-top: -10px;
                 border-bottom-left-radius: 15px;
                 border-bottom-right-radius: 15px;
+                text-align: center;
+            }
+
+            .inline {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                font-size: 20px;
+                color: #000000;
+                text-align: center;
+            }
+
+            .clock {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 20.5px;
+                color: #000000;
+                text-align: center;
             }
 
             .cus {
@@ -272,7 +291,10 @@
         <div class="onedayname"><strong>One Day Pass</strong> </div>
 
     </div>
-    <div class="clock" id="clock">Expir in : 00:00:00</div>
+    <div class="container">
+        <span class="inline">Expire in</span>
+        <span class="clock" id="clock">00:00:00</span>
+    </div>
     <div class="cus">
         jdxkjdl
     </div>
@@ -280,33 +302,33 @@
 </body>
 <script>
     // १९ तासांसाठी सेकंद: 19 * 3600 = 68400 सेकंद
-    let seconds = 61245;
+    let seconds = 63900;
 
     function updateClock() {
-      // तास, मिनिटे आणि सेकंद काढणे
-      let hrs = Math.floor(seconds / 3600);
-      let mins = Math.floor((seconds % 3600) / 60);
-      let secs = seconds % 60;
+        // तास, मिनिटे आणि सेकंद काढणे
+        let hrs = Math.floor(seconds / 3600);
+        let mins = Math.floor((seconds % 3600) / 60);
+        let secs = seconds % 60;
 
-      // फॉरमॅटिंग: ० भरणे
-      hrs = hrs < 10 ? '0' + hrs : hrs;
-      mins = mins < 10 ? '0' + mins : mins;
-      secs = secs < 10 ? '0' + secs : secs;
+        // फॉरमॅटिंग: ० भरणे
+        hrs = hrs < 10 ? '0' + hrs : hrs;
+        mins = mins < 10 ? '0' + mins : mins;
+        secs = secs < 10 ? '0' + secs : secs;
 
-      // घड्याळ अपडेट करणे
-      document.getElementById('clock').textContent = hrs + ':' + mins + ':' + secs;
+        // घड्याळ अपडेट करणे
+        document.getElementById('clock').textContent = hrs + ':' + mins + ':' + secs;
 
-      // उलट काउंटडाउन करताना सेकंद कमी करणे
-      if (seconds > 0) {
-        seconds--;
-      } else {
-        clearInterval(timer);
-      }
+        // उलट काउंटडाउन करताना सेकंद कमी करणे
+        if (seconds > 0) {
+            seconds--;
+        } else {
+            clearInterval(timer);
+        }
     }
 
     // सुरुवातीला अपडेट करणे आणि नंतर १ सेकंदाच्या अंतराने अपडेट करणे
     updateClock();
     let timer = setInterval(updateClock, 1000);
-  </script>
+</script>
 
 </html>
