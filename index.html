@@ -203,35 +203,24 @@
             }
 
             .container {
-                background: #ececec;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                font-family: Arial, sans-serif;
+                background: white;
+                border-radius: 10px;
                 width: 355px;
-                height: 25px;
-                padding-top: 40px;
                 margin-left: 20px;
-                text-align: center;
-                margin-top: -10px;
-                border-bottom-left-radius: 15px;
-                border-bottom-right-radius: 15px;
-                text-align: center;
+                display: flex;
+                height: 50px;
+                background-color: rgb(229, 231, 231);
             }
-
-            .inline {
-                display: inline-block;
-                vertical-align: middle;
-                margin-right: 10px;
-                font-size: 18px;
-                color: #000000;
-                text-align: center;
+            .ex{
+                font-family: sans-serif;
+                font-size: 15px;
+                margin: 27px 0 0 118px;
             }
-
-            .clock {
-                display: inline-block;
-                vertical-align: middle;
-                font-size: 18px;
-                color: #000000;
-                text-align: center;
+            .timer {
+                font-size: 24px;
+                margin: 27px 0 0 5px;
+                font-family: sans-serif;
+                font-size: 15px;
             }
 
 
@@ -272,14 +261,14 @@
 
             .modal-content {
                 display: block;
-                margin: 220px 0 0 65px;
+                margin: 200px 0 0 65px;
                 max-width: 80%;
                 max-height: 80%;
             }
 
             .close {
                 position: absolute;
-                top: 170px;
+                top: 150px;
                 right: 35px;
                 color: white;
                 font-size: 30px;
@@ -340,8 +329,8 @@
 
     </div>
     <div class="container">
-        <span class="inline">Expire in</span>
-        <span class="clock" id="clock">00:00:00</span>
+        <strong class="ex">Expiry :</strong>
+        <div class="timer" id="clock">00:00:00</div>
     </div>
     <div class="barcode" id="openModal">
         <img class="codeimg"
@@ -359,32 +348,30 @@
 
 </body>
 <script>
-    // १९ तासांसाठी सेकंद: 19 * 3600 = 68400 सेकंद
-    let seconds = 63900;
-
     function updateClock() {
-        // तास, मिनिटे आणि सेकंद काढणे
-        let hrs = Math.floor(seconds / 3600);
-        let mins = Math.floor((seconds % 3600) / 60);
-        let secs = seconds % 60;
-
-        // फॉरमॅटिंग: ० भरणे
-        hrs = hrs < 10 ? '0' + hrs : hrs;
-        mins = mins < 10 ? '0' + mins : mins;
-        secs = secs < 10 ? '0' + secs : secs;
-
-        // घड्याळ अपडेट करणे
-        document.getElementById('clock').textContent = hrs + ':' + mins + ':' + secs;
-
-        // उलट काउंटडाउन करताना सेकंद कमी करणे
-        if (seconds > 0) {
-            seconds--;
+        const now = new Date(); // Current device time
+        const midnight = new Date();
+        midnight.setHours(23, 59, 59, 999); // Set target time to 11:59:59 PM
+        
+        let diff = midnight - now; // Difference in milliseconds
+        
+        if (diff > 0) {
+            let hrs = Math.floor(diff / (1000 * 60 * 60));
+            let mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let secs = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Formatting: Add leading zero if necessary
+            hrs = hrs < 10 ? '0' + hrs : hrs;
+            mins = mins < 10 ? '0' + mins : mins;
+            secs = secs < 10 ? '0' + secs : secs;
+            
+            document.getElementById('clock').textContent = hrs + ':' + mins + ':' + secs;
         } else {
+            document.getElementById('clock').textContent = "00:00:00";
             clearInterval(timer);
         }
     }
-
-    // सुरुवातीला अपडेट करणे आणि नंतर १ सेकंदाच्या अंतराने अपडेट करणे
+    
     updateClock();
     let timer = setInterval(updateClock, 1000);
 
